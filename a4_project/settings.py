@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'hello',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +122,32 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'C:/Users/Aleksandra9_7/Desktop/TGM/2_Jahr_TGM/INFI_WS_Montag/DjangoProjekt_A/a4_django_projekt/a4_project/debug.log', ####
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
+
+
+# E-Mail-Einstellungen - EXTRA, nicht notwendig!
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.yourmailserver.com'  # Der Host deines E-Mail-Servers #### !!! HIER MUSS MAN ERSETZEN DURCH ECHTEN SERVER
+EMAIL_PORT = 587  # Standardport für SMTP
+EMAIL_USE_TLS = True  # Sicherheit durch Transport Layer Security
+EMAIL_HOST_USER = 'your-email@example.com'  #### !!! HIER MUSS MAN ERSETZEN DURCH ECHTE E-Mail
+EMAIL_HOST_PASSWORD = 'your-email-password'  # Dein E-Mail-Passwort
+DEFAULT_FROM_EMAIL = 'webmaster@example.com'  # Die Standard-Absenderadresse
